@@ -1,16 +1,20 @@
 PODS:
   - Hero (1.6.1)
+  - SteviaLayout (5.1.2)
 
 DEPENDENCIES:
   - Hero
+  - SteviaLayout
 
 SPEC REPOS:
   trunk:
     - Hero
+    - SteviaLayout
 
 SPEC CHECKSUMS:
   Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
+  SteviaLayout: 05424e528d643657d39ce72c786e4adf13cfc5f2
 
-PODFILE CHECKSUM: 5892a7bc9f01657fd31e080cd76cbf7033913178
+PODFILE CHECKSUM: 91d3813a9337393362ec7f59cfab3751c51b5fd6
 
 COCOAPODS: 1.11.3

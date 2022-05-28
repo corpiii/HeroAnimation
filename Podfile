@@ -6,6 +6,7 @@ target 'HeroProject' do
   use_frameworks!
 
   pod 'Hero'
+  pod 'SteviaLayout'
 
   # Pods for HeroProject
 
