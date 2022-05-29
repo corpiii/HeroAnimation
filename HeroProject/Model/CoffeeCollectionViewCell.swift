@@ -10,8 +10,8 @@ import Stevia
 
 class CoffeeCollectionViewCell: UICollectionViewCell {
     
+    let containerView = UIView()
     var coffeeImage = UIImageView()
-    
     let coffeeInfoView = UIView()
     var coffeeName = UILabel()
     var coffeePrice = UILabel()
@@ -22,83 +22,96 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        self.layer.masksToBounds = false
         
         setLayout()
     }
     
     func setLayout() {
-        contentView.addSubview(coffeeImage)
-        contentView.addSubview(coffeeInfoView)
-        setCoffeeImageLayout()
+        subviews (
+            containerView.subviews (
+                coffeeImage,
+                coffeeInfoView.subviews(
+                    coffeeName,
+                    coffeePrice
+                )
+            )
+        )
+        
         setCoffeeInfoLayout()
+        //setCoffeeImageLayout()
         
         layout (
+            |containerView|
+        )
+        containerView.centerVertically()
+        
+        containerView.layout (
             |-coffeeImage-10-coffeeInfoView-|
         )
         
         equal(heights: [coffeeImage, coffeeInfoView])
+        
+        //setCoffeeImageLayout()
+        coffeeImage.contentMode = .scaleToFill
+        coffeeImage.centerVertically()
+        
+        equal(heights: [coffeeImage, coffeeInfoView])
     }
-//
-//    func setCoffeeInfoLayout() {
-//        coffeeInfoView.subviews (
-//            coffeeName,
-//            coffeePrice
-//        )
-//
-//        coffeeInfoView.layout (
-//            |coffeeName|,
-//             8,
-//             |coffeePrice|
-//        )
-//
-//        coffeeName.font = UIFont.systemFont(ofSize: 24)
-//        coffeeName.text = "No Name"
-//
-//        coffeePrice.font = UIFont.systemFont(ofSize: 18)
-//        coffeePrice.alpha = 0.7
-//        coffeePrice.text = "No Price"
-//    }
-    func setCoffeeInfoLayout() {
-        coffeeInfoView.addSubview(coffeeName)
-        coffeeInfoView.addSubview(coffeePrice)
+    
+    override func layoutSubviews() {
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        let screenHeight = screenRect.size.height
         
-        coffeeName.translatesAutoresizingMaskIntoConstraints = false
-        coffeePrice.translatesAutoresizingMaskIntoConstraints = false
-        coffeeInfoView.translatesAutoresizingMaskIntoConstraints = false
+        // image rounded section
+        coffeeImage.size(screenWidth / 5)
+        coffeeImage.layer.borderWidth = 1.0
+        coffeeImage.layer.masksToBounds = false
+        coffeeImage.layer.borderColor = UIColor.clear.cgColor
+        coffeeImage.layer.cornerRadius = 15
+        coffeeImage.clipsToBounds = true
         
-        coffeeInfoView.layout (
-            |-coffeeName-|,
-              10,
-              |-coffeePrice-|
-        )
+        // cell rounded section
+        self.layer.cornerRadius = 15.0
+        self.layer.borderWidth = 2.0
+        self.layer.backgroundColor = UIColor.white.cgColor
+        self.layer.borderColor = UIColor.clear.cgColor
+        self.layer.masksToBounds = true
         
-//        coffeeInfoView.leadingAnchor.constraint(equalTo: coffeeImage.trailingAnchor, constant: 15).isActive = true
-//
-//        coffeeName.topAnchor.constraint(equalTo: coffeeInfoView.topAnchor, constant: 8).isActive = true
-//        coffeeName.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = false
-//        coffeeName.bottomAnchor.constraint(equalTo: coffeePrice.topAnchor, constant: 8).isActive = false
-//        coffeeName.trailingAnchor.constraint(equalTo: coffeeInfoView.trailingAnchor, constant: 8).isActive = true
-//
-//        coffeePrice.topAnchor.constraint(equalTo: coffeeName.topAnchor, constant: 8).isActive = true
-//        coffeePrice.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = false
-//        coffeePrice.bottomAnchor.constraint(equalTo: coffeeInfoView.bottomAnchor).isActive = false
-//        coffeePrice.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 8).isActive = false
-//
+        // cell shadow section
+        self.contentView.layer.cornerRadius = 15.0
+        self.contentView.layer.borderWidth = 5.0
+        self.contentView.layer.borderColor = UIColor.clear.cgColor
+        self.contentView.layer.masksToBounds = true
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 0.0)
+        self.layer.shadowRadius = 6.0
+        self.layer.shadowOpacity = 0.6
+        self.layer.cornerRadius = 15.0
+        self.layer.masksToBounds = false
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
         
     }
     
-    func setCoffeeImageLayout() {
-        coffeeImage.width(80).height(80)
-        coffeeImage.translatesAutoresizingMaskIntoConstraints = false
+    func setCoffeeInfoLayout() {
         
-
-        coffeeImage.centerVertically()
-//
-//        coffeeImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
-//        coffeeImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
-////        coffeeImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-////        coffeeImage.trailingAnchor.constraint(equalTo: coffeeInfoView.leadingAnchor).isActive = true
-////
+        coffeePrice.font = UIFont.systemFont(ofSize: 15)
+        coffeePrice.alpha = 0.5
+        
+        coffeeInfoView.subviews (
+            coffeeName,
+            coffeePrice
+        )
+        
+        coffeeInfoView.layout (
+            |-coffeeName-|,
+              6,
+              |-coffeePrice-|
+        )
+        
     }
+//
+//    func setCoffeeImageLayout() {
+//
+//    }
 }
