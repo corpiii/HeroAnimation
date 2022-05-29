@@ -32,6 +32,12 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(coffeeInfoView)
         setCoffeeImageLayout()
         setCoffeeInfoLayout()
+        
+        layout (
+            |-coffeeImage-10-coffeeInfoView-|
+        )
+        
+        equal(heights: [coffeeImage, coffeeInfoView])
     }
 //
 //    func setCoffeeInfoLayout() {
@@ -59,29 +65,40 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
         
         coffeeName.translatesAutoresizingMaskIntoConstraints = false
         coffeePrice.translatesAutoresizingMaskIntoConstraints = false
+        coffeeInfoView.translatesAutoresizingMaskIntoConstraints = false
         
-        coffeeName.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        coffeeName.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = false
-        coffeeName.bottomAnchor.constraint(equalTo: coffeePrice.topAnchor, constant: 8).isActive = true
-        coffeeName.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 8).isActive = true
+        coffeeInfoView.layout (
+            |-coffeeName-|,
+              10,
+              |-coffeePrice-|
+        )
         
-        coffeePrice.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = false
-        coffeePrice.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = false
-        coffeePrice.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-        coffeePrice.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 8).isActive = true
-        
+//        coffeeInfoView.leadingAnchor.constraint(equalTo: coffeeImage.trailingAnchor, constant: 15).isActive = true
+//
+//        coffeeName.topAnchor.constraint(equalTo: coffeeInfoView.topAnchor, constant: 8).isActive = true
+//        coffeeName.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = false
+//        coffeeName.bottomAnchor.constraint(equalTo: coffeePrice.topAnchor, constant: 8).isActive = false
+//        coffeeName.trailingAnchor.constraint(equalTo: coffeeInfoView.trailingAnchor, constant: 8).isActive = true
+//
+//        coffeePrice.topAnchor.constraint(equalTo: coffeeName.topAnchor, constant: 8).isActive = true
+//        coffeePrice.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = false
+//        coffeePrice.bottomAnchor.constraint(equalTo: coffeeInfoView.bottomAnchor).isActive = false
+//        coffeePrice.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 8).isActive = false
+//
         
     }
     
     func setCoffeeImageLayout() {
-        coffeeImage.width(50).height(50)
+        coffeeImage.width(80).height(80)
         coffeeImage.translatesAutoresizingMaskIntoConstraints = false
         
-        coffeeImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        coffeeImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-        coffeeImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-        coffeeImage.trailingAnchor.constraint(equalTo: coffeeInfoView.leadingAnchor).isActive = true
-        
-        
+
+        coffeeImage.centerVertically()
+//
+//        coffeeImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
+//        coffeeImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
+////        coffeeImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+////        coffeeImage.trailingAnchor.constraint(equalTo: coffeeInfoView.leadingAnchor).isActive = true
+////
     }
 }

@@ -10,7 +10,7 @@ import Hero
 import Stevia
 
 class ViewController: UIViewController {
-
+    
     var coffeeList: [Coffee] = []
     var coffeeMenu: UICollectionView!
     
@@ -28,10 +28,11 @@ class ViewController: UIViewController {
         registerCollectionView()
         setCollectionViewDelegate()
         //setLayout()
+        
     }
     
     func setLayout() {
-                
+        
         self.view.subviews (
             coffeeMenu
         )
@@ -45,15 +46,21 @@ class ViewController: UIViewController {
     
     func configureCollectionView() {
         print("커피 메뉴판 생성")
-        self.coffeeMenu = CoffeeCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.scrollDirection = .vertical
+        layout.sectionInset = .zero
+        
+        self.coffeeMenu = CoffeeCollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         self.coffeeMenu.translatesAutoresizingMaskIntoConstraints = false
         self.coffeeMenu.backgroundColor = .white
         self.view.addSubview(coffeeMenu)
         
         coffeeMenu.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
-        coffeeMenu.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        coffeeMenu.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         coffeeMenu.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        coffeeMenu.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 10).isActive = true
+        coffeeMenu.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
     func registerCollectionView() {
@@ -71,21 +78,34 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 300, height: 120)
-        }
-
+        
+        return CGSize(width: 350, height: 120)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return coffeeList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = coffeeMenu!.dequeueReusableCell(withReuseIdentifier: "cellIdentifier", for: indexPath) as! CoffeeCollectionViewCell
+    
         cell.coffeeImage.image = UIImage(named: "pigeonto")
         cell.coffeeName.text(coffeeList[indexPath.row].name)
         cell.coffeePrice.text(String(coffeeList[indexPath.row].price) + "원")
+        
+        cell.layer.cornerRadius = 10
+        cell.layer.borderWidth = 0.5
+        cell.layer.shadowOffset = CGSize(width: 3, height: 3)
+        cell.layer.shadowRadius = 5.0
+        cell.layer.shadowOpacity = 1
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.masksToBounds = false
+        
         print("coffee item \(indexPath.row)생성")
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return CGFloat(10)
+    }
 }
