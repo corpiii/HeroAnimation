@@ -35,8 +35,22 @@ class ViewController: UIViewController {
         coffeeList.append(Coffee(name: "아메리카노2", price: 40001))
         coffeeList.append(Coffee(name: "아메리카노3", price: 40002))
         coffeeList.append(Coffee(name: "아메리카노4", price: 40003))
+        coffeeList.append(Coffee(name: "아메리카노", price: 4000))
+        coffeeList.append(Coffee(name: "아메리카노2", price: 40001))
+        coffeeList.append(Coffee(name: "아메리카노3", price: 40002))
+        coffeeList.append(Coffee(name: "아메리카노4", price: 40003))
+        coffeeList.append(Coffee(name: "아메리카노", price: 4000))
+        coffeeList.append(Coffee(name: "아메리카노2", price: 40001))
+        coffeeList.append(Coffee(name: "아메리카노3", price: 40002))
+        coffeeList.append(Coffee(name: "아메리카노4", price: 40003))
+        coffeeList.append(Coffee(name: "아메리카노", price: 4000))
+        coffeeList.append(Coffee(name: "아메리카노2", price: 40001))
+        coffeeList.append(Coffee(name: "아메리카노3", price: 40002))
+        coffeeList.append(Coffee(name: "아메리카노4", price: 40003))
         
         configureCollectionView()
+        hero.isEnabled = true
+        
         registerCollectionView()
         setCollectionViewDelegate()
         setLayout()
@@ -94,6 +108,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         cell.coffeePrice.text(String(coffeeList[indexPath.row].price) + "원")
         
         print("coffee item \(indexPath.row)생성")
+        
+        AnimationUtility.viewSlideInFromRight(toLeft: cell)
+
         return cell
     }
     

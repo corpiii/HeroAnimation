@@ -16,6 +16,8 @@ class CoffeeCollectionViewCell: UICollectionViewCell {
     var coffeeName = UILabel()
     var coffeePrice = UILabel()
     
+    var isAnimated = false
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
