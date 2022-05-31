@@ -14,15 +14,32 @@ class DetailPageViewController: UIViewController {
     let coffeeImage = UIImageView()
     let coffeeName = UILabel()
     let coffeePrice = UILabel()
-    let coffeeRecipe = UILabel()
+    let coffeeRecipe = UITextView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        setLayout()
     }
 
+    func setLayout() {
+        self.view.subviews (
+            coffeeImage,
+            coffeeName,
+            coffeePrice,
+            coffeeRecipe
+        )
+        
+        self.view.layout (
+            coffeeImage,
+            coffeeName,
+            coffeePrice,
+            |-coffeeRecipe-|,
+            10
+        )
+        
+    }
     /*
     // MARK: - Navigation
 

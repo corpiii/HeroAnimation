@@ -7,6 +7,7 @@ target 'HeroProject' do
 
   pod 'Hero'
   pod 'SteviaLayout'
+  pod "ViewAnimator"
 
   # Pods for HeroProject
 
