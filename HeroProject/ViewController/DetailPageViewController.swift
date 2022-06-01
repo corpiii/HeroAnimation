@@ -20,9 +20,22 @@ class DetailPageViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+        
         setLayout()
     }
-
+    
+    init(coffeeName: String, coffeePrice: Int, coffeeImage: UIImage) {
+        self.coffeeName.text = coffeeName
+        self.coffeePrice.text = String(coffeePrice) + "원"
+        self.coffeeImage.image = coffeeImage
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func setLayout() {
         self.view.subviews (
             coffeeImage,
@@ -32,13 +45,21 @@ class DetailPageViewController: UIViewController {
         )
         
         self.view.layout (
+            10%,
             coffeeImage,
+            10,
             coffeeName,
             coffeePrice,
             |-coffeeRecipe-|,
             10
         )
         
+        coffeeImage.size(80).centerHorizontally()
+        coffeeName.centerHorizontally()
+        coffeePrice.centerHorizontally()
+        coffeePrice.alpha = 0.5
+        
+        coffeeRecipe.isEditable = true
     }
     /*
     // MARK: - Navigation

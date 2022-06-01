@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        view.backgroundColor = .green
         print("coffee List generated")
         coffeeList.append(Coffee(name: "아메리카노", price: 4000))
         coffeeList.append(Coffee(name: "아메리카노2", price: 40001))
@@ -146,6 +147,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        print(indexPath)
+        let index = coffeeList[indexPath.row]
+        let detailView = DetailPageViewController(coffeeName: index.name, coffeePrice: index.price, coffeeImage: UIImage(named: "pigeonto")!)
+        
+        self.navigationController?.pushViewController(detailView, animated: true)
     }
 }
