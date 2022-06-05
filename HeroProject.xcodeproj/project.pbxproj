@@ -14,6 +14,12 @@
 		AC87F1D928415D540027C59D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC87F1D728415D540027C59D /* Main.storyboard */; };
 		AC87F1DB28415D560027C59D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC87F1DA28415D560027C59D /* Assets.xcassets */; };
 		AC87F1DE28415D560027C59D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC87F1DC28415D560027C59D /* LaunchScreen.storyboard */; };
+		AC87F1E7284162290027C59D /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87F1E6284162290027C59D /* Coffee.swift */; };
+		AC87F1E92841639D0027C59D /* CoffeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87F1E82841639D0027C59D /* CoffeeCollectionViewCell.swift */; };
+		AC87F1EB284244290027C59D /* CoffeeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87F1EA284244290027C59D /* CoffeeCollectionView.swift */; };
+		AC87F1ED284525AA0027C59D /* AnimationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87F1EC284525AA0027C59D /* AnimationUtility.swift */; };
+		AC87F1EF284645A30027C59D /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87F1EE284645A30027C59D /* DetailPageViewController.swift */; };
+		AC87F1F2284645DF0027C59D /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87F1F1284645DF0027C59D /* AddRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +31,12 @@
 		AC87F1DA28415D560027C59D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC87F1DD28415D560027C59D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC87F1DF28415D560027C59D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC87F1E6284162290027C59D /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		AC87F1E82841639D0027C59D /* CoffeeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC87F1EA284244290027C59D /* CoffeeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCollectionView.swift; sourceTree = "<group>"; };
+		AC87F1EC284525AA0027C59D /* AnimationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationUtility.swift; sourceTree = "<group>"; };
+		AC87F1EE284645A30027C59D /* DetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
+		AC87F1F1284645DF0027C59D /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		C307C79EE0889DD3D639075A /* Pods-HeroProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroProject.debug.xcconfig"; path = "Target Support Files/Pods-HeroProject/Pods-HeroProject.debug.xcconfig"; sourceTree = "<group>"; };
 		C95646B095D0608F9332F5E8 /* Pods-HeroProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroProject.release.xcconfig"; path = "Target Support Files/Pods-HeroProject/Pods-HeroProject.release.xcconfig"; sourceTree = "<group>"; };
 		E3B433C942AD7B125E954802 /* Pods_HeroProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,7 +68,6 @@
 				C307C79EE0889DD3D639075A /* Pods-HeroProject.debug.xcconfig */,
 				C95646B095D0608F9332F5E8 /* Pods-HeroProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,15 +92,37 @@
 		AC87F1D028415D540027C59D /* HeroProject */ = {
 			isa = PBXGroup;
 			children = (
+				AC87F1F0284645A90027C59D /* ViewController */,
+				AC87F1E52841621A0027C59D /* Model */,
+				AC87F1EC284525AA0027C59D /* AnimationUtility.swift */,
 				AC87F1D128415D540027C59D /* AppDelegate.swift */,
 				AC87F1D328415D540027C59D /* SceneDelegate.swift */,
-				AC87F1D528415D540027C59D /* ViewController.swift */,
 				AC87F1D728415D540027C59D /* Main.storyboard */,
 				AC87F1DA28415D560027C59D /* Assets.xcassets */,
 				AC87F1DC28415D560027C59D /* LaunchScreen.storyboard */,
 				AC87F1DF28415D560027C59D /* Info.plist */,
 			);
 			path = HeroProject;
+			sourceTree = "<group>";
+		};
+		AC87F1E52841621A0027C59D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC87F1E6284162290027C59D /* Coffee.swift */,
+				AC87F1E82841639D0027C59D /* CoffeeCollectionViewCell.swift */,
+				AC87F1EA284244290027C59D /* CoffeeCollectionView.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC87F1F0284645A90027C59D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AC87F1D528415D540027C59D /* ViewController.swift */,
+				AC87F1EE284645A30027C59D /* DetailPageViewController.swift */,
+				AC87F1F1284645DF0027C59D /* AddRecipeViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,9 +240,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC87F1F2284645DF0027C59D /* AddRecipeViewController.swift in Sources */,
+				AC87F1EF284645A30027C59D /* DetailPageViewController.swift in Sources */,
+				AC87F1ED284525AA0027C59D /* AnimationUtility.swift in Sources */,
+				AC87F1EB284244290027C59D /* CoffeeCollectionView.swift in Sources */,
 				AC87F1D628415D540027C59D /* ViewController.swift in Sources */,
+				AC87F1E92841639D0027C59D /* CoffeeCollectionViewCell.swift in Sources */,
 				AC87F1D228415D540027C59D /* AppDelegate.swift in Sources */,
 				AC87F1D428415D540027C59D /* SceneDelegate.swift in Sources */,
+				AC87F1E7284162290027C59D /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

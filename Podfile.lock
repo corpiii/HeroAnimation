@@ -1,16 +1,24 @@
 PODS:
   - Hero (1.6.1)
+  - SteviaLayout (5.1.2)
+  - ViewAnimator (3.1.0)
 
 DEPENDENCIES:
   - Hero
+  - SteviaLayout
+  - ViewAnimator
 
 SPEC REPOS:
   trunk:
     - Hero
+    - SteviaLayout
+    - ViewAnimator
 
 SPEC CHECKSUMS:
   Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
+  SteviaLayout: 05424e528d643657d39ce72c786e4adf13cfc5f2
+  ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
 
-PODFILE CHECKSUM: 5892a7bc9f01657fd31e080cd76cbf7033913178
+PODFILE CHECKSUM: aea0b47f617cdeb31c69eab5c7352468b0c93ed7
 
 COCOAPODS: 1.11.3

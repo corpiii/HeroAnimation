@@ -1,2 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-HeroProject/Pods-HeroProject-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Hero/Hero.framework
+${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework
+${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework
